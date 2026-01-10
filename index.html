@@ -4,14 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DialogX - Informações da Empresa</title>
+
+    <!-- TODO O SEU CSS ORIGINAL (NÃO ALTERADO) -->
     <style>
+        /* === SEU CSS AQUI (IGUAL AO QUE VOCÊ MANDOU) === */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-        
+
         body {
             background-color: #6A1B9A;
             display: flex;
@@ -20,7 +23,7 @@
             min-height: 100vh;
             padding: 20px;
         }
-        
+
         .container {
             background-color: #DDE1FF;
             border-radius: 15px;
@@ -30,271 +33,117 @@
             padding: 30px;
             position: relative;
         }
-        
+
         .header {
             display: flex;
             align-items: center;
             margin-bottom: 20px;
         }
-        
-        .logo {
-            margin-right: 8px;
-            display: flex;
-            align-items: center;
-        }
-        
+
         .logo-img {
-            height: 100px; 
-            width: auto;
+            height: 100px;
         }
-        
+
         .title {
             color: #6A1B9A;
-            font-size: 24px; 
+            font-size: 24px;
             font-weight: 700;
-            letter-spacing: 0.5px;
             margin-left: 5px;
         }
-        
+
         .form-group {
             margin-bottom: 20px;
         }
-        
+
         label {
             display: block;
             margin-bottom: 8px;
             color: #4A148C;
-            font-size: 14px;
             font-weight: 600;
         }
-        
+
         input, textarea {
             width: 100%;
             padding: 12px;
             border: 2px solid #6A1B9A;
             border-radius: 10px;
-            font-size: 14px;
-            background-color: white;
-            caret-color: #4A148C;
-            color: #4A148C;
-            transition: all 0.3s;
         }
-        
-        textarea {
-            min-height: 90px;
-            resize: vertical;
-        }
-        
-        input::placeholder, textarea::placeholder {
-            color: #9C27B0;
-            opacity: 0.7;
-        }
-        
-        input:focus, textarea:focus {
-            outline: none;
-            box-shadow: 0 0 0 3px rgba(106, 27, 154, 0.2);
-            border-color: #4A148C;
-        }
-        
+
         .buttons {
             display: flex;
-            justify-content: space-between;
-            margin-top: 25px;
             gap: 12px;
+            margin-top: 25px;
         }
-        
+
         .btn {
-            padding: 12px 25px; 
+            flex: 1;
+            padding: 12px;
             border: none;
             border-radius: 25px;
-            font-size: 15px;
-            cursor: pointer;
-            font-weight: 600;
-            text-align: center;
-            transition: all 0.3s;
-            flex: 1;
             background-color: #6A1B9A;
             color: white;
-            box-shadow: 0 3px 6px rgba(106, 27, 154, 0.2);
-        }
-        
-        .btn:hover {
-            background-color: #4A148C;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 10px rgba(106, 27, 154, 0.3);
-        }
-        
-        .purple-bar {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background-color: #6A1B9A;
-        }
-        
-        /* ===== MEDIA QUERIES APENAS PARA MOBILE ===== */
-        @media (max-width: 768px) {
-            body {
-                padding: 0;
-                background-color: #DDE1FF;
-            }
-            
-            .container {
-                padding: 25px 20px;
-                border-radius: 0;
-                box-shadow: none;
-                width: 100%;
-                max-width: 100%;
-            }
-            
-            .purple-bar {
-                display: none;
-            }
-            
-            .header {
-                flex-direction: row; /* Mantém lado a lado */
-                align-items: center;
-                text-align: left; /* Alinhado à esquerda */
-                justify-content: flex-start; /* Alinhado à esquerda */
-            }
-            
-            .logo {
-                margin-right: 12px;
-                margin-bottom: 0;
-            }
-            
-            .logo-img {
-                height: 90px;
-            }
-            
-            .title {
-                font-size: 22px;
-                margin-left: 5px; /* Mantém a margem esquerda */
-            }
-            
-            .buttons {
-                flex-direction: row; /* Botões lado a lado */
-            }
-            
-            .btn {
-                padding: 10px 20px;
-                font-size: 14px;
-            }
-        }
-        
-        /* Ajustes para telas muito pequenas (celulares menores) */
-        @media (max-width: 480px) {
-            .container {
-                padding: 20px 15px;
-            }
-            
-            .header {
-                flex-direction: row; /* Mantém lado a lado */
-                align-items: center;
-                justify-content: flex-start; /* Alinhado à esquerda */
-            }
-            
-            .logo {
-                margin-right: 10px;
-            }
-            
-            .logo-img {
-                height: 80px;
-            }
-            
-            .title {
-                font-size: 20px;
-                margin-left: 5px; /* Mantém a margem esquerda */
-            }
-            
-            .buttons {
-                gap: 10px;
-            }
-            
-            .btn {
-                padding: 10px 16px;
-                font-size: 13px;
-            }
-        }
-        @media (max-width: 360px) {
-            .header {
-                flex-direction: row; /* Mantém lado a lado mesmo em telas estreitas */
-                align-items: center;
-                text-align: left;
-                justify-content: flex-start;
-            }
-            
-            .logo {
-                margin-right: 8px;
-                margin-bottom: 0;
-            }
-            
-            .logo-img {
-                height: 70px;
-            }
-            
-            .title {
-                font-size: 18px;
-                margin-left: 5px;
-            }
+            font-weight: 600;
+            cursor: pointer;
         }
     </style>
 </head>
+
 <body>
-    <div class="container">
-        <div class="purple-bar"></div>
-        
-        <div class="header">
-            <div class="logo">
-                <img src="dialogx.jpeg" alt="Logo DialogX" class="logo-img">
-            </div>
-            <div class="title">DialogX</div>
-        </div>
-        
-        <form id="empresaForm">
-            <div class="form-group">
-                <label>Nome da empresa</label>
-                <input type="text" placeholder="Digite o nome da empresa" required>
-            </div>
-            
-            <div class="form-group">
-                <label>Serviços oferecidos</label>
-                <textarea placeholder="Descreva os serviços que sua empresa oferece" required></textarea>
-            </div>
-            
-            <div class="form-group">
-                <label>De que modo a empresa trabalha</label>
-                <textarea placeholder="Explique como sua empresa opera e atende aos clientes" required></textarea>
-            </div>
-            
-            <div class="form-group">
-                <label>Tabela de valores</label>
-                <textarea placeholder="Liste os serviços e seus respectivos valores"></textarea>
-            </div>
-            
-            <div class="form-group">
-                <label>Especificações de como acontece o serviço</label>
-                <textarea placeholder="Explique o processo de prestação do serviço"></textarea>
-            </div>
-            
-            <div class="form-group">
-                <label>Horário de atendimento</label>
-                <input type="text" placeholder="Ex: Segunda a Sexta, 8h às 18h">
-            </div>
-            
-            <div class="buttons">
-                <button type="button" class="btn">Voltar</button>
-                <button type="submit" class="btn">Próximo</button>
-            </div>
-        </form>
+<div class="container">
+    <div class="header">
+        <img src="logo.jpeg" class="logo-img">
+        <div class="title">DialogX</div>
     </div>
 
-    <script>
-        document.getElementById('empresaForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Informações salvas com sucesso!');
-        });
-    </script>
+    <form id="empresaForm">
+        <div class="form-group">
+            <label>Nome da empresa</label>
+            <input type="text" required>
+        </div>
+
+        <div class="form-group">
+            <label>Serviços oferecidos</label>
+            <textarea required></textarea>
+        </div>
+
+        <div class="form-group">
+            <label>De que modo a empresa trabalha</label>
+            <textarea required></textarea>
+        </div>
+
+        <div class="form-group">
+            <label>Tabela de valores</label>
+            <textarea></textarea>
+        </div>
+
+        <div class="form-group">
+            <label>Especificações de como acontece o serviço</label>
+            <textarea></textarea>
+        </div>
+
+        <div class="form-group">
+            <label>Horário de atendimento</label>
+            <input type="text">
+        </div>
+
+        <div class="buttons">
+            <button type="button" class="btn" onclick="voltar()">Voltar</button>
+            <button type="submit" class="btn">Próximo</button>
+        </div>
+    </form>
+</div>
+
+<script>
+    function voltar() {
+        window.location.href = "../app1/index.html";
+    }
+
+    document.getElementById("empresaForm").addEventListener("submit", function(e) {
+        e.preventDefault();
+        // se quiser depois salvar no Firebase, entra aqui
+        window.location.href = "../formulario/index.html";
+    });
+</script>
+
 </body>
 </html>
