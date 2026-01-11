@@ -64,6 +64,8 @@
       padding: 12px;
       border: 2px solid #6A1B9A;
       border-radius: 10px;
+      background: #fff;
+      color: #000;
     }
 
     input::placeholder,
@@ -170,19 +172,17 @@
 
     try {
       await addDoc(collection(db, "informacoes_empresa"), dados);
-
-      // 🔁 PRÓXIMO → aplicativo
-      window.location.href = "/app2/aplicativo/index.html";
-
     } catch (erro) {
-      console.error("Erro ao salvar:", erro);
-      alert("Erro ao salvar os dados");
+      console.error("Erro ao salvar no Firebase:", erro);
     }
+
+    // 🔁 PRÓXIMO → aplicativo
+    window.location.href = "/app2/aplicativo/index.html";
   });
 
-  // 🔙 VOLTAR → app1
+  // 🔙 VOLTAR → primeira tela (como antes)
   window.voltar = function () {
-    window.location.href = "/app2/app1/index.html";
+    window.location.href = "/app2/index.html";
   };
 </script>
 
