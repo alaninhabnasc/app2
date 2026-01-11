@@ -1,189 +1,155 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DialogX - Informações da Empresa</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DialogX - Informações da Empresa</title>
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
 
-    body {
-      background-color: #6A1B9A;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      padding: 20px;
-    }
+        body {
+            background-color: #6A1B9A;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
 
-    .container {
-      background-color: #DDE1FF;
-      border-radius: 15px;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-      width: 100%;
-      max-width: 500px;
-      padding: 30px;
-    }
+        .container {
+            background-color: #DDE1FF;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 500px;
+            padding: 30px;
+        }
 
-    .header {
-      display: flex;
-      align-items: center;
-      margin-bottom: 20px;
-    }
+        .header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
 
-    .logo-img {
-      height: 100px;
-    }
+        .logo-img {
+            height: 100px;
+        }
 
-    .title {
-      color: #6A1B9A;
-      font-size: 24px;
-      font-weight: 700;
-      margin-left: 5px;
-    }
+        .title {
+            color: #6A1B9A;
+            font-size: 24px;
+            font-weight: 700;
+            margin-left: 5px;
+        }
 
-    .form-group {
-      margin-bottom: 20px;
-    }
+        .form-group {
+            margin-bottom: 20px;
+        }
 
-    label {
-      display: block;
-      margin-bottom: 8px;
-      color: #4A148C;
-      font-weight: 600;
-    }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #4A148C;
+            font-weight: 600;
+        }
 
-    input, textarea {
-      width: 100%;
-      padding: 12px;
-      border: 2px solid #6A1B9A;
-      border-radius: 10px;
-      background: #fff;
-      color: #000;
-    }
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #6A1B9A;
+            border-radius: 10px;
+            background: #fff;
+            color: #000;
+        }
 
-    input::placeholder,
-    textarea::placeholder {
-      color: #6A1B9A;
-      opacity: 0.6;
-    }
+        input::placeholder,
+        textarea::placeholder {
+            color: #6A1B9A;
+            opacity: 0.6;
+        }
 
-    .buttons {
-      display: flex;
-      gap: 12px;
-      margin-top: 25px;
-    }
+        .buttons {
+            display: flex;
+            gap: 12px;
+            margin-top: 25px;
+        }
 
-    .btn {
-      flex: 1;
-      padding: 12px;
-      border: none;
-      border-radius: 25px;
-      background-color: #6A1B9A;
-      color: white;
-      font-weight: 600;
-      cursor: pointer;
-    }
-  </style>
+        .btn {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 25px;
+            background-color: #6A1B9A;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+        }
+    </style>
 </head>
 
 <body>
 
 <div class="container">
-  <div class="header">
-    <img src="dialogx.jpeg" class="logo-img">
-    <div class="title">DialogX</div>
-  </div>
-
-  <form id="empresaForm">
-
-    <div class="form-group">
-      <label>Serviços oferecidos</label>
-      <textarea id="servicos" placeholder="Todos os serviços oferecidos pela empresa" required></textarea>
+    <div class="header">
+        <img src="dialogx.jpeg" class="logo-img">
+        <div class="title">DialogX</div>
     </div>
 
-    <div class="form-group">
-      <label>De que modo a empresa trabalha</label>
-      <textarea id="modo" placeholder="Explique como funciona o atendimento e a execução do serviço" required></textarea>
-    </div>
+    <form id="empresaForm">
 
-    <div class="form-group">
-      <label>Tabela de valores</label>
-      <textarea id="valores" placeholder="Ex: planos, pacotes, valores por serviço"></textarea>
-    </div>
+        <div class="form-group">
+            <label>Serviços oferecidos</label>
+            <textarea id="servicos" placeholder="Todos os serviços oferecidos pela empresa" required></textarea>
+        </div>
 
-    <div class="form-group">
-      <label>Especificações de como acontece o serviço</label>
-      <textarea id="especificacoes" placeholder="Detalhe etapas, prazos e condições do serviço"></textarea>
-    </div>
+        <div class="form-group">
+            <label>De que modo a empresa trabalha</label>
+            <textarea id="modo" placeholder="Explique como funciona o atendimento e a execução do serviço" required></textarea>
+        </div>
 
-    <div class="form-group">
-      <label>Horário de atendimento</label>
-      <input id="horario" type="text" placeholder="Ex: Segunda a sexta, das 08h às 18h">
-    </div>
+        <div class="form-group">
+            <label>Tabela de valores</label>
+            <textarea id="valores" placeholder="Ex: planos, pacotes, valores por serviço"></textarea>
+        </div>
 
-    <div class="form-group">
-      <label>Informações extras</label>
-      <textarea id="extras" placeholder="Coloque novas informações, caso queira acrescentar algo a mais"></textarea>
-    </div>
+        <div class="form-group">
+            <label>Especificações de como acontece o serviço</label>
+            <textarea id="especificacoes" placeholder="Detalhe etapas, prazos e condições do serviço"></textarea>
+        </div>
 
-    <div class="buttons">
-      <button type="button" class="btn" onclick="voltar()">Voltar</button>
-      <button type="submit" class="btn">Próximo</button>
-    </div>
+        <div class="form-group">
+            <label>Horário de atendimento</label>
+            <input id="horario" type="text" placeholder="Ex: Segunda a sexta, das 08h às 18h">
+        </div>
 
-  </form>
+        <div class="form-group">
+            <label>Informações extras</label>
+            <textarea id="extras" placeholder="Coloque novas informações, caso queira acrescentar algo a mais"></textarea>
+        </div>
+
+        <div class="buttons">
+            <button type="button" class="btn" onclick="voltar()">Voltar</button>
+            <button type="submit" class="btn">Próximo</button>
+        </div>
+
+    </form>
 </div>
 
-<script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-app.js";
-  import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-firestore.js";
-
-  const firebaseConfig = {
-    apiKey: "SUA_API_KEY",
-    authDomain: "SEU_DOMINIO.firebaseapp.com",
-    projectId: "SEU_PROJECT_ID",
-    storageBucket: "SEU_BUCKET.appspot.com",
-    messagingSenderId: "SEU_ID",
-    appId: "SEU_APP_ID"
-  };
-
-  const app = initializeApp(firebaseConfig);
-  const db = getFirestore(app);
-
-  document.getElementById("empresaForm").addEventListener("submit", async (e) => {
-    e.preventDefault();
-
-    const dados = {
-      servicos: document.getElementById("servicos").value,
-      modo: document.getElementById("modo").value,
-      valores: document.getElementById("valores").value,
-      especificacoes: document.getElementById("especificacoes").value,
-      horario: document.getElementById("horario").value,
-      extras: document.getElementById("extras").value,
-      criadoEm: new Date()
-    };
-
-    try {
-      await addDoc(collection(db, "informacoes_empresa"), dados);
-    } catch (erro) {
-      console.error("Erro ao salvar no Firebase:", erro);
+<script>
+    function voltar() {
+        window.location.href = "/app2/app1/index.html";
     }
 
-    // 🔁 PRÓXIMO → aplicativo
-    window.location.href = "/app2/aplicativo/index.html";
-  });
-
-  // 🔙 VOLTAR → primeira tela (como antes)
-  window.voltar = function () {
-    window.location.href = "/app2/index.html";
-  };
+    document.getElementById("empresaForm").addEventListener("submit", function (e) {
+        e.preventDefault();
+        window.location.href = "/app2/aplicativo/index.html";
+    });
 </script>
 
 </body>
