@@ -105,53 +105,32 @@
 
         <div class="form-group">
             <label>Serviços oferecidos</label>
-            <textarea
-                id="servicos"
-                placeholder="Todos os serviços oferecidos pela empresa"
-                required
-            ></textarea>
+            <textarea id="servicos" placeholder="Todos os serviços oferecidos pela empresa" required></textarea>
         </div>
 
         <div class="form-group">
             <label>De que modo a empresa trabalha</label>
-            <textarea
-                id="modo"
-                placeholder="Explique como funciona o atendimento e a execução do serviço"
-                required
-            ></textarea>
+            <textarea id="modo" placeholder="Explique como funciona o atendimento e a execução do serviço" required></textarea>
         </div>
 
         <div class="form-group">
             <label>Tabela de valores</label>
-            <textarea
-                id="valores"
-                placeholder="Ex: planos, pacotes, valores por serviço"
-            ></textarea>
+            <textarea id="valores" placeholder="Ex: planos, pacotes, valores por serviço"></textarea>
         </div>
 
         <div class="form-group">
             <label>Especificações de como acontece o serviço</label>
-            <textarea
-                id="especificacoes"
-                placeholder="Detalhe etapas, prazos e condições do serviço"
-            ></textarea>
+            <textarea id="especificacoes" placeholder="Detalhe etapas, prazos e condições do serviço"></textarea>
         </div>
 
         <div class="form-group">
             <label>Horário de atendimento</label>
-            <input
-                id="horario"
-                type="text"
-                placeholder="Ex: Segunda a sexta, das 08h às 18h"
-            >
+            <input id="horario" type="text" placeholder="Ex: Segunda a sexta, das 08h às 18h">
         </div>
 
         <div class="form-group">
             <label>Informações extras</label>
-            <textarea
-                id="extras"
-                placeholder="Coloque novas informações, caso queira acrescentar algo a mais"
-            ></textarea>
+            <textarea id="extras" placeholder="Coloque novas informações, caso queira acrescentar algo a mais"></textarea>
         </div>
 
         <div class="buttons">
@@ -162,7 +141,7 @@
     </form>
 </div>
 
-<!-- 🔥 FIREBASE -->
+<!-- 🔥 FIREBASE + CONTINUIDADE GARANTIDA -->
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-app.js";
   import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-firestore.js";
@@ -182,7 +161,7 @@
   document.getElementById("empresaForm").addEventListener("submit", async (e) => {
     e.preventDefault();
 
-    await addDoc(collection(db, "informacoes_empresa"), {
+    const dados = {
       servicos: servicos.value,
       modo: modo.value,
       valores: valores.value,
@@ -190,8 +169,16 @@
       horario: horario.value,
       extras: extras.value,
       criadoEm: new Date()
-    });
+    };
 
+    try {
+      await addDoc(collection(db, "informacoes_empresa"), dados);
+      console.log("Dados salvos no Firebase");
+    } catch (erro) {
+      console.error("Erro ao salvar no Firebase:", erro);
+    }
+
+    // ✅ SEMPRE CONTINUA
     window.location.href = "../aplicativo/index.html";
   });
 
@@ -202,4 +189,3 @@
 
 </body>
 </html>
-
