@@ -5,9 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DialogX - Informações da Empresa</title>
 
-    <!-- TODO O SEU CSS ORIGINAL (NÃO ALTERADO) -->
     <style>
-        /* === SEU CSS AQUI (IGUAL AO QUE VOCÊ MANDOU) === */
         * {
             margin: 0;
             padding: 0;
@@ -31,7 +29,6 @@
             width: 100%;
             max-width: 500px;
             padding: 30px;
-            position: relative;
         }
 
         .header {
@@ -67,6 +64,14 @@
             padding: 12px;
             border: 2px solid #6A1B9A;
             border-radius: 10px;
+            background: #fff;
+            color: #000;
+        }
+
+        input::placeholder,
+        textarea::placeholder {
+            color: #6A1B9A;
+            opacity: 0.6;
         }
 
         .buttons {
@@ -89,60 +94,110 @@
 </head>
 
 <body>
+
 <div class="container">
     <div class="header">
-        <img src="logo.jpeg" class="logo-img">
+        <img src="dialogx.jpeg" class="logo-img">
         <div class="title">DialogX</div>
     </div>
 
     <form id="empresaForm">
-        <div class="form-group">
-            <label>Nome da empresa</label>
-            <input type="text" required>
-        </div>
 
         <div class="form-group">
             <label>Serviços oferecidos</label>
-            <textarea required></textarea>
+            <textarea
+                id="servicos"
+                placeholder="Todos os serviços oferecidos pela empresa"
+                required
+            ></textarea>
         </div>
 
         <div class="form-group">
             <label>De que modo a empresa trabalha</label>
-            <textarea required></textarea>
+            <textarea
+                id="modo"
+                placeholder="Explique como funciona o atendimento e a execução do serviço"
+                required
+            ></textarea>
         </div>
 
         <div class="form-group">
             <label>Tabela de valores</label>
-            <textarea></textarea>
+            <textarea
+                id="valores"
+                placeholder="Ex: planos, pacotes, valores por serviço"
+            ></textarea>
         </div>
 
         <div class="form-group">
             <label>Especificações de como acontece o serviço</label>
-            <textarea></textarea>
+            <textarea
+                id="especificacoes"
+                placeholder="Detalhe etapas, prazos e condições do serviço"
+            ></textarea>
         </div>
 
         <div class="form-group">
             <label>Horário de atendimento</label>
-            <input type="text">
+            <input
+                id="horario"
+                type="text"
+                placeholder="Ex: Segunda a sexta, das 08h às 18h"
+            >
+        </div>
+
+        <div class="form-group">
+            <label>Informações extras</label>
+            <textarea
+                id="extras"
+                placeholder="Coloque novas informações, caso queira acrescentar algo a mais"
+            ></textarea>
         </div>
 
         <div class="buttons">
             <button type="button" class="btn" onclick="voltar()">Voltar</button>
             <button type="submit" class="btn">Próximo</button>
         </div>
+
     </form>
 </div>
 
-<script>
-    function voltar() {
-        window.location.href = "../app1/index.html";
-    }
+<!-- 🔥 FIREBASE -->
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-app.js";
+  import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-firestore.js";
 
-    document.getElementById("empresaForm").addEventListener("submit", function(e) {
-        e.preventDefault();
-        // se quiser depois salvar no Firebase, entra aqui
-        window.location.href = "../formulario/index.html";
+  const firebaseConfig = {
+    apiKey: "SUA_API_KEY",
+    authDomain: "SEU_DOMINIO.firebaseapp.com",
+    projectId: "SEU_PROJECT_ID",
+    storageBucket: "SEU_BUCKET.appspot.com",
+    messagingSenderId: "SEU_ID",
+    appId: "SEU_APP_ID"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  document.getElementById("empresaForm").addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    await addDoc(collection(db, "informacoes_empresa"), {
+      servicos: servicos.value,
+      modo: modo.value,
+      valores: valores.value,
+      especificacoes: especificacoes.value,
+      horario: horario.value,
+      extras: extras.value,
+      criadoEm: new Date()
     });
+
+    window.location.href = "../formulario/index.html";
+  });
+
+  window.voltar = function () {
+    window.location.href = "../app1/index.html";
+  };
 </script>
 
 </body>
