@@ -1,103 +1,106 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DialogX - Informações da Empresa</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DialogX - Informações da Empresa</title>
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 
-        body {
-            background-color: #6A1B9A;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            padding: 20px;
-        }
+body {
+    background-color: #DDE1FF; /* só o roxinho claro */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100svh;
+    overflow: hidden;
+}
 
-        .container {
-            background-color: #DDE1FF;
-            border-radius: 15px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-            width: 100%;
-            max-width: 500px;
-            padding: 30px;
-        }
+.container {
+    background-color: #DDE1FF;
+    width: 100%;
+    max-width: 500px;
+    min-height: 100svh;
+    padding: 30px 25px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 
-        .header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 20px;
-        }
+.header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
 
-        .logo-img {
-            height: 100px;
-        }
+.logo-img {
+    height: 90px;
+}
 
-        .title {
-            color: #6A1B9A;
-            font-size: 24px;
-            font-weight: 700;
-            margin-left: 5px;
-        }
+.title {
+    color: #6A1B9A;
+    font-size: 24px;
+    font-weight: 700;
+    margin-left: 8px;
+}
 
-        .form-group {
-            margin-bottom: 20px;
-        }
+.form-group {
+    margin-bottom: 20px;
+}
 
-        label {
-            display: block;
-            margin-bottom: 8px;
-            color: #4A148C;
-            font-weight: 600;
-        }
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: #4A148C;
+    font-weight: 600;
+}
 
-        input, textarea {
-            width: 100%;
-            padding: 12px;
-            border: 2px solid #6A1B9A;
-            border-radius: 10px;
-            background: #fff;
-            color: #000;
-        }
+input, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #6A1B9A;
+    border-radius: 10px;
+    background: #fff;
+    resize: vertical;
+}
 
-        input::placeholder,
-        textarea::placeholder {
-            color: #6A1B9A;
-            opacity: 0.6;
-        }
+input::placeholder,
+textarea::placeholder {
+    color: #6A1B9A;
+    opacity: 0.6;
+}
 
-        .buttons {
-            display: flex;
-            gap: 12px;
-            margin-top: 25px;
-        }
+.buttons {
+    display: flex;
+    gap: 12px;
+    margin-top: 25px;
+}
 
-        .btn {
-            flex: 1;
-            padding: 12px;
-            border: none;
-            border-radius: 25px;
-            background-color: #6A1B9A;
-            color: white;
-            font-weight: 600;
-            cursor: pointer;
-        }
-    </style>
+.btn {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 25px;
+    background-color: #6A1B9A;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+}
+</style>
 </head>
 
 <body>
 
 <div class="container">
     <div class="header">
-        <img src="dialogx.jpeg" class="logo-img">
+        <img src="dialogx.jpeg" class="logo-img" alt="DialogX">
         <div class="title">DialogX</div>
     </div>
 
@@ -142,16 +145,14 @@
 </div>
 
 <script>
-    function voltar() {
-        // VOLTA para app1
-        window.location.href = "../app1/index.html";
-    }
+function voltar() {
+    window.location.href = "../app1/index.html";
+}
 
-    document.getElementById("empresaForm").addEventListener("submit", function (e) {
-        e.preventDefault();
-        // VAI para aplicativo
-        window.location.href = "../aplicativo/index.html";
-    });
+document.getElementById("empresaForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+    window.location.href = "../aplicativo/index.html";
+});
 </script>
 
 </body>
