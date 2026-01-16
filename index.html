@@ -13,25 +13,37 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+/* DESKTOP NORMAL */
 body {
-    background-color: #DDE1FF; /* só o roxinho claro */
+    background-color: #6A1B9A; /* roxo escuro */
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100svh;
-    overflow: hidden;
+    min-height: 100vh;
+    padding: 20px;
 }
 
 .container {
     background-color: #DDE1FF;
     width: 100%;
     max-width: 500px;
-    min-height: 100svh;
     padding: 30px 25px;
     border-radius: 15px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+}
+
+/* MOBILE / INSPECIONAR */
+@media (max-width: 768px) {
+    body {
+        background-color: #DDE1FF; /* só roxinho claro */
+        padding: 0;
+    }
+
+    .container {
+        min-height: 100svh;
+        border-radius: 0;
+    }
 }
 
 .header {
@@ -108,32 +120,32 @@ textarea::placeholder {
 
         <div class="form-group">
             <label>Serviços oferecidos</label>
-            <textarea id="servicos" placeholder="Todos os serviços oferecidos pela empresa" required></textarea>
+            <textarea required placeholder="Todos os serviços oferecidos pela empresa"></textarea>
         </div>
 
         <div class="form-group">
             <label>De que modo a empresa trabalha</label>
-            <textarea id="modo" placeholder="Explique como funciona o atendimento e a execução do serviço" required></textarea>
+            <textarea required placeholder="Explique como funciona o atendimento e a execução do serviço"></textarea>
         </div>
 
         <div class="form-group">
             <label>Tabela de valores</label>
-            <textarea id="valores" placeholder="Ex: planos, pacotes, valores por serviço"></textarea>
+            <textarea placeholder="Ex: planos, pacotes, valores por serviço"></textarea>
         </div>
 
         <div class="form-group">
-            <label>Especificações de como acontece o serviço</label>
-            <textarea id="especificacoes" placeholder="Detalhe etapas, prazos e condições do serviço"></textarea>
+            <label>Especificações do serviço</label>
+            <textarea placeholder="Detalhe etapas, prazos e condições do serviço"></textarea>
         </div>
 
         <div class="form-group">
             <label>Horário de atendimento</label>
-            <input id="horario" type="text" placeholder="Ex: Segunda a sexta, das 08h às 18h">
+            <input type="text" placeholder="Ex: Segunda a sexta, das 08h às 18h">
         </div>
 
         <div class="form-group">
             <label>Informações extras</label>
-            <textarea id="extras" placeholder="Coloque novas informações, caso queira acrescentar algo a mais"></textarea>
+            <textarea placeholder="Outras informações, se desejar"></textarea>
         </div>
 
         <div class="buttons">
